@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="./style.css">
+
+  <title>Frontend Mentor | Typing Speed Test</title>
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="Typing Speed Test home">
+      <picture>
+        <source media="(max-width: 767px)" srcset="./assets/images/logo-small.svg">
+        <img src="./assets/images/logo-large.svg" alt="Typing Speed Test">
+      </picture>
+    </a>
+
+    <p class="personal-best">
+      <img src="./assets/images/icon-personal-best.svg" alt="" aria-hidden="true">
+      <span>Personal best: <output data-stat="personal-best">0</output> WPM</span>
+    </p>
+  </header>
+
+  <main id="main-content">
+    <section class="test-view" data-view="test" aria-labelledby="test-heading">
+      <h1 id="test-heading" class="visually-hidden">Typing speed test</h1>
+
+      <div class="test-toolbar">
+        <dl class="test-stats" aria-label="Current test statistics">
+          <div class="stat">
+            <dt>WPM:</dt>
+            <dd><output data-stat="wpm">0</output></dd>
+          </div>
+          <div class="stat">
+            <dt>Accuracy:</dt>
+            <dd><output data-stat="accuracy">100%</output></dd>
+          </div>
+          <div class="stat">
+            <dt>Time:</dt>
+            <dd><output data-stat="time">0:60</output></dd>
+          </div>
+        </dl>
+
+        <form class="test-controls" aria-label="Test settings">
+          <fieldset class="control-group">
+            <legend>Difficulty:</legend>
+            <button type="button" data-control="difficulty" data-difficulty="easy" aria-pressed="false">Easy</button>
+            <button type="button" data-control="difficulty" data-difficulty="medium" aria-pressed="false">Medium</button>
+            <button type="button" data-control="difficulty" data-difficulty="hard" aria-pressed="true">Hard</button>
+          </fieldset>
+
+          <fieldset class="control-group">
+            <legend>Mode:</legend>
+            <button type="button" data-control="mode" data-mode="timed" aria-pressed="true">
+              <span>Timed (60s)</span>
+              <img src="./assets/images/icon-down-arrow.svg" alt="" aria-hidden="true">
+            </button>
+            <button type="button" data-control="mode" data-mode="passage" aria-pressed="false">
+              <span>Passage</span>
+              <img src="./assets/images/icon-down-arrow.svg" alt="" aria-hidden="true">
+            </button>
+          </fieldset>
+        </form>
+      </div>
+
+      <section class="typing-area" aria-labelledby="passage-label">
+        <h2 id="passage-label" class="visually-hidden">Passage to type</h2>
+        <p class="passage" data-passage tabindex="0" aria-describedby="typing-status">The text passage will appear here.</p>
+        <textarea class="typing-input" data-input rows="1" aria-label="Type the passage here" aria-describedby="typing-status" autocomplete="off" autocapitalize="off" spellcheck="false"></textarea>
+        <div class="start-prompt" data-start-prompt>
+          <button type="button" data-action="start">Start Typing Test</button>
+          <p id="typing-status">Or click the text and start typing</p>
+        </div>
+      </section>
+
+      <div class="test-actions">
+        <button class="restart-button" type="button" data-action="restart">
+          <span>Restart Test</span>
+          <img src="./assets/images/icon-restart.svg" alt="" aria-hidden="true">
+        </button>
+      </div>
+    </section>
+
+    <section class="results-view" data-view="results" aria-labelledby="result-heading" hidden>
+      <img class="result-icon result-icon-complete" data-result-icon="complete" src="./assets/images/icon-completed.svg" alt="" aria-hidden="true">
+      <img class="result-icon result-icon-new-pb" data-result-icon="new-pb" src="./assets/images/icon-new-pb.svg" alt="" aria-hidden="true" hidden>
+      <img class="result-decoration result-decoration-left" src="./assets/images/pattern-star-2.svg" alt="" aria-hidden="true">
+      <img class="result-decoration result-decoration-right" src="./assets/images/pattern-star-1.svg" alt="" aria-hidden="true">
+      <img class="result-confetti" data-result-confetti src="./assets/images/pattern-confetti.svg" alt="" aria-hidden="true" hidden>
+
+      <div class="result-summary" aria-live="polite">
+        <h1 id="result-heading" data-result="title">Test Complete!</h1>
+        <p data-result="message">Solid run. Keep pushing to beat your high score.</p>
+      </div>
+
+      <dl class="result-metrics" aria-label="Test results">
+        <div class="result-metric">
+          <dt>WPM:</dt>
+          <dd><output data-result-stat="wpm">0</output></dd>
+        </div>
+        <div class="result-metric">
+          <dt>Accuracy:</dt>
+          <dd><output data-result-stat="accuracy">0%</output></dd>
+        </div>
+        <div class="result-metric">
+          <dt>Characters</dt>
+          <dd><output data-result-stat="correct">0</output><span aria-hidden="true">/</span><output data-result-stat="incorrect">0</output></dd>
+        </div>
+      </dl>
+
+      <button class="result-action" type="button" data-action="again">
+        <span data-result="action-label">Go Again</span>
+        <img src="./assets/images/icon-restart.svg" alt="" aria-hidden="true">
+      </button>
+    </section>
+  </main>
+
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+    Coded by <a href="#">Your Name Here</a>.
+  </footer>
+
+  <script src="./script.js" defer></script>
+</body>
+</html>
